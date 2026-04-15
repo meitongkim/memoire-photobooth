@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mémoire — A Vintage Photobooth</title>
+
+  <!-- Google Fonts: Playfair Display + Cormorant Garamond + Dancing Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== DECORATIVE BACKGROUND ELEMENTS ===== -->
+  <div class="deco-bg" aria-hidden="true">
+    <svg class="deco-floral deco-floral--tl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="55" stroke="#c9b99a" stroke-width="0.6" opacity="0.4"/>
+      <path d="M60 5 Q90 30 60 60 Q30 30 60 5Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M5 60 Q30 90 60 60 Q30 30 5 60Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M60 115 Q90 90 60 60 Q30 90 60 115Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M115 60 Q90 30 60 60 Q90 90 115 60Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <circle cx="60" cy="60" r="8" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+
+    <svg class="deco-floral deco-floral--br" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="150" cy="150" rx="120" ry="80" stroke="#c9b99a" stroke-width="0.6" opacity="0.3" transform="rotate(30 150 150)"/>
+      <path d="M150 70 Q180 110 150 150 Q120 110 150 70Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M150 230 Q180 190 150 150 Q120 190 150 230Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M70 150 Q110 120 150 150 Q110 180 70 150Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M230 150 Q190 120 150 150 Q190 180 230 150Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <!-- ===== HEADER / HERO ===== -->
+  <header class="site-header">
+    <div class="header-rule"></div>
+    <p class="header-eyebrow">est. today — for always</p>
+    <h1 class="site-title">
+      <span class="title-script">Mémoire</span>
+    </h1>
+    <p class="site-subtitle">A vintage photobooth for moments worth keeping</p>
+    <div class="header-rule header-rule--bottom"></div>
+  </header>
+
+  <!-- ===== MAIN APP ===== -->
+  <main class="app-main">
+
+    <!-- ===== CAMERA SECTION ===== -->
+    <section class="camera-section" id="camera-section">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span class="label-text">the booth</span>
+        <span class="label-line"></span>
+      </div>
+
+      <!-- Vintage frame wrapper -->
+      <div class="camera-stage">
+        <div class="vintage-frame" id="vintage-frame">
+          <div class="frame-corner frame-corner--tl"></div>
+          <div class="frame-corner frame-corner--tr"></div>
+          <div class="frame-corner frame-corner--bl"></div>
+          <div class="frame-corner frame-corner--br"></div>
+          <div class="frame-inner">
+            <!-- Live video -->
+            <video id="video" autoplay playsinline muted></video>
+            <!-- Hidden canvas for capture -->
+            <canvas id="capture-canvas" style="display:none;"></canvas>
+            <!-- Countdown overlay -->
+            <div class="countdown-overlay" id="countdown-overlay" aria-live="polite">
+              <span class="countdown-number" id="countdown-number"></span>
+            </div>
+            <!-- Flash overlay -->
+            <div class="flash-overlay" id="flash-overlay"></div>
+            <!-- Permission error state -->
+            <div class="camera-error" id="camera-error" style="display:none;">
+              <div class="error-icon">⌖</div>
+              <p class="error-title">Camera access denied</p>
+              <p class="error-message">Please allow camera permissions in your browser settings and refresh the page.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strip preview mini -->
+        <div class="strip-preview" id="strip-preview">
+          <p class="strip-preview__label">strip preview</p>
+          <div class="strip-preview__slots" id="strip-slots">
+            <div class="strip-slot" data-index="0"><span>1</span></div>
+            <div class="strip-slot" data-index="1"><span>2</span></div>
+            <div class="strip-slot" data-index="2"><span>3</span></div>
+            <div class="strip-slot" data-index="3"><span>4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-panel">
+        <p class="filters-label">mood</p>
+        <div class="filters-list" role="radiogroup" aria-label="Select photo filter">
+          <button class="filter-btn active" data-filter="none" role="radio" aria-checked="true" title="No filter">
+            <span class="filter-swatch filter-swatch--none"></span>
+            <span>natural</span>
+          </button>
+          <button class="filter-btn" data-filter="bw" role="radio" aria-checked="false" title="Black & white">
+            <span class="filter-swatch filter-swatch--bw"></span>
+            <span>noir</span>
+          </button>
+          <button class="filter-btn" data-filter="warm" role="radio" aria-checked="false" title="Warm vintage">
+            <span class="filter-swatch filter-swatch--warm"></span>
+            <span>golden hour</span>
+          </button>
+          <button class="filter-btn" data-filter="fade" role="radio" aria-checked="false" title="Faded film">
+            <span class="filter-swatch filter-swatch--fade"></span>
+            <span>faded film</span>
+          </button>
+          <button class="filter-btn" data-filter="dreamy" role="radio" aria-checked="false" title="Dreamy soft">
+            <span class="filter-swatch filter-swatch--dreamy"></span>
+            <span>dreamy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="camera-controls">
+        <button class="btn btn--primary" id="btn-single" aria-label="Take single photo">
+          <span class="btn-icon">◎</span>
+          <span>capture one</span>
+        </button>
+        <button class="btn btn--strip" id="btn-strip" aria-label="Start photo strip sequence">
+          <span class="btn-icon">⋮</span>
+          <span>start strip</span>
+        </button>
+        <button class="btn btn--outline" id="btn-reset-strip" aria-label="Reset strip" style="display:none;">
+          <span>reset strip</span>
+        </button>
+      </div>
+
+      <!-- Status message -->
+      <p class="status-msg" id="status-msg" aria-live="polite"></p>
+    </section>
+
+    <!-- ===== CAPTION MODAL ===== -->
+    <div class="modal-backdrop" id="caption-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Add a caption">
+      <div class="modal-card">
+        <div class="modal-preview">
+          <img id="modal-preview-img" src="" alt="Just captured photo" />
+        </div>
+        <div class="modal-body">
+          <p class="modal-eyebrow">a moment captured</p>
+          <h3 class="modal-title">Add a caption</h3>
+          <input
+            type="text"
+            id="caption-input"
+            class="caption-input"
+            placeholder="write something beautiful…"
+            maxlength="80"
+            aria-label="Photo caption"
+          />
+          <div class="modal-actions">
+            <button class="btn btn--primary" id="btn-save-caption">save memory</button>
+            <button class="btn btn--ghost" id="btn-skip-caption">skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== STRIP DOWNLOAD MODAL ===== -->
+    <div class="modal-backdrop" id="strip-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Your photo strip">
+      <div class="modal-card modal-card--strip">
+        <div class="modal-strip-wrap">
+          <img id="strip-result-img" src="" alt="Your photo strip" class="strip-result-img" />
+        </div>
+        <div class="modal-body">
+          <p class="modal-eyebrow">your strip is ready</p>
+          <h3 class="modal-title">Four frames, one story.</h3>
+          <div class="modal-actions">
+            <button class="btn btn--primary" id="btn-download-strip">download strip</button>
+            <button class="btn btn--ghost" id="btn-close-strip">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="gallery-section" id="gallery-section">
+      <div class="section-label">
+        <span class="label-line"></span>
+        <span class="label-text">your memories</span>
+        <span class="label-line"></span>
+      </div>
+
+      <div class="gallery-header">
+        <p class="gallery-count" id="gallery-count">0 photos saved</p>
+        <button class="btn btn--ghost btn--small" id="btn-clear-gallery">clear all</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Populated by gallery.js -->
+        <div class="gallery-empty" id="gallery-empty">
+          <p class="gallery-empty__script">nothing yet —</p>
+          <p class="gallery-empty__text">your memories will appear here once you capture them</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-rule"></div>
+    <p class="footer-text">
+      <span class="footer-script">Mémoire</span>
+      &thinsp;—&thinsp; made with tenderness, for the moments that matter
+    </p>
+    <p class="footer-sub">all photos are stored locally in your browser · nothing leaves your device</p>
+  </footer>
+
+  <!-- ===== JS MODULES (order matters) ===== -->
+  <script src="js/filters.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/capture.js"></script>
+  <script src="js/strip.js"></script>
+  <script src="js/gallery.js"></script>
+
+</body>
+</html>
