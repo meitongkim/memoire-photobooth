@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Library — Meimonde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .lib-header { text-align: center; padding: 52px 24px 36px; max-width: 960px; margin: 0 auto; }
+    .lib-back { font-family: var(--font-serif); font-size: 0.82rem; font-style: italic; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; transition: color 0.2s; }
+    .lib-back:hover { color: var(--text-dark); }
+    .lib-logo { font-family: var(--font-script); font-size: clamp(2.8rem, 8vw, 5.5rem); color: var(--text-dark); display: block; margin-bottom: 4px; animation: logoFloat 6s ease-in-out infinite; }
+    @keyframes logoFloat { 0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)} }
+    .lib-subtitle { font-family: var(--font-serif); font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+    .lib-hr { height: 1px; background: var(--border); max-width: 960px; margin: 0 auto 40px; }
+    .lib-main { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+    .lib-intro { font-family: var(--font-serif); font-size: 0.9rem; font-style: italic; color: var(--text-muted); text-align: center; margin-bottom: 40px; line-height: 1.7; }
+    .lib-grid { columns: 3; column-gap: 16px; }
+    @media(max-width:700px){ .lib-grid { columns: 2; } }
+    @media(max-width:460px){ .lib-grid { columns: 1; } }
+    .lib-card {
+      break-inside: avoid;
+      background: var(--white);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      animation: cardIn 0.4s ease both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
+    .lib-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 0 var(--border); }
+    .lib-card img { width: 100%; display: block; }
+    .lib-card-body { padding: 10px 12px 12px; border-top: 1px solid var(--border); }
+    .lib-card-caption { font-family: var(--font-serif); font-size: 0.85rem; font-style: italic; color: var(--text); }
+    .lib-card-meta { font-size: 0.68rem; color: var(--text-muted); margin-top: 3px; }
+    .lib-empty { text-align: center; padding: 80px 24px; border: 1px dashed var(--border); }
+    .lib-empty-script { font-family: var(--font-script); font-size: 2.5rem; color: var(--border); margin-bottom: 8px; }
+    .lib-empty-text { font-family: var(--font-serif); font-size: 0.9rem; font-style: italic; color: var(--text-muted); }
+    .lib-cta { display: flex; justify-content: center; margin-top: 40px; }
+    .lib-cta a { font-family: var(--font-serif); font-size: 0.85rem; font-style: italic; letter-spacing: 0.12em; }
+    /* Submission CTA banner */
+    .submit-banner {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .submit-banner p { font-family: var(--font-serif); font-size: 0.9rem; font-style: italic; color: var(--text-muted); margin-bottom: 14px; }
+    .submit-banner a { font-family: var(--font-serif); font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+
+<div class="lib-header">
+  <a href="index.html" class="lib-back">← back to the booth</a>
+  <span class="lib-logo">Meimonde.</span>
+  <p class="lib-subtitle">Community Library</p>
+</div>
+
+<div class="lib-hr"></div>
+
+<div class="lib-main">
+
+  <p class="lib-intro">
+    A public gallery of moments shared by the Meimonde community.<br/>
+    Every frame tells a story worth keeping.
+  </p>
+
+  <div class="submit-banner">
+    <p>Shot something beautiful? Submit your photos for a chance to be featured here.</p>
+    <a href="index.html#menu" class="action-btn action-btn--primary" style="display:inline-flex;text-decoration:none;">submit your photos →</a>
+  </div>
+
+  <!-- Gallery populated from curated submissions -->
+  <div class="lib-grid" id="lib-grid">
+    <!-- Placeholder community cards — replace with real curated content -->
+    <div class="lib-card">
+      <div style="aspect-ratio:4/3;background:var(--light-gray);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--border-dark);">coming soon</span>
+      </div>
+      <div class="lib-card-body">
+        <p class="lib-card-caption">your moments go here</p>
+        <p class="lib-card-meta">Meimonde Community · submit yours</p>
+      </div>
+    </div>
+    <div class="lib-card">
+      <div style="aspect-ratio:3/4;background:var(--light-gray);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--border-dark);">coming soon</span>
+      </div>
+      <div class="lib-card-body">
+        <p class="lib-card-caption">a memory worth keeping</p>
+        <p class="lib-card-meta">Meimonde Community</p>
+      </div>
+    </div>
+    <div class="lib-card">
+      <div style="aspect-ratio:1/1;background:var(--light-gray);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--border-dark);">coming soon</span>
+      </div>
+      <div class="lib-card-body">
+        <p class="lib-card-caption">photos for every moment</p>
+        <p class="lib-card-meta">Meimonde Community</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lib-cta">
+    <a href="index.html" class="action-btn action-btn--secondary">← return to the booth</a>
+  </div>
+
+</div>
+
+<footer style="text-align:center;padding:32px 24px;border-top:1px solid var(--border);max-width:960px;margin:0 auto;">
+  <p style="font-family:var(--font-script);font-size:1.6rem;color:var(--text-dark);">Meimonde.</p>
+  <p style="font-family:var(--font-serif);font-size:0.72rem;font-style:italic;color:var(--text-muted);margin-top:4px;">
+    photos for every moment ·
+    <a href="privacy.html" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:2px;">Privacy Policy</a>
+  </p>
+</footer>
+
+</body>
+</html>
