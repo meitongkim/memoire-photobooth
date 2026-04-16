@@ -76,22 +76,28 @@ async function initCamera() {
 }
 
 /**
- * Maps video dimensions to capture canvas.
- * Called once stream is ready, ensures captured frames match video.
+ * Maps canvas to the video's NATIVE resolution.
+ * This is the key fix for preventing stretch — never assume dimensions.
  */
 function syncCanvasToVideo() {
   captureCanvas.width  = videoEl.videoWidth  || 1280;
-  captureCanvas.height = videoEl.videoHeight || 960;
+  captureCanvas.height = videoEl.videoHeight || 720;
 }
 
 /**
- * Captures the current video frame onto captureCanvas.
- * Returns the canvas element with the frame drawn on it.
+ * Captures the current video frame at NATIVE resolution.
+ * STRETCH FIX: always re-sync to actual videoWidth/videoHeight before drawing,
+ * so the canvas always matches the real pixel dimensions of the stream.
+ * The CSS `transform: scaleX(-1)` mirror is visual-only and not captured here.
  * @returns {HTMLCanvasElement}
  */
 function captureFrameToCanvas() {
-  const ctx = captureCanvas.getContext('2d');
-  // Draw current video frame (un-mirrored — CSS mirror is visual only)
+  // Re-sync every capture in case resolution changed (mobile rotation etc.)
+  captureCanvas.width  = videoEl.videoWidth;
+  captureCanvas.height = videoEl.videoHeight;
+
+  // willReadFrequently = true → optimize for getImageData calls (filters)
+  const ctx = captureCanvas.getContext('2d', { willReadFrequently: true });
   ctx.drawImage(videoEl, 0, 0, captureCanvas.width, captureCanvas.height);
   return captureCanvas;
 }
