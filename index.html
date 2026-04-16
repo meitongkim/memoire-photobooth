@@ -3,90 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mémoire — A Vintage Photobooth</title>
-
-  <!-- Google Fonts: Playfair Display + Cormorant Garamond + Dancing Script -->
+  <title>Meimonde — Photo Booth</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:wght@300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ===== DECORATIVE BACKGROUND ELEMENTS ===== -->
-  <div class="deco-bg" aria-hidden="true">
-    <svg class="deco-floral deco-floral--tl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="55" stroke="#c9b99a" stroke-width="0.6" opacity="0.4"/>
-      <path d="M60 5 Q90 30 60 60 Q30 30 60 5Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <path d="M5 60 Q30 90 60 60 Q30 30 5 60Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <path d="M60 115 Q90 90 60 60 Q30 90 60 115Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <path d="M115 60 Q90 30 60 60 Q90 90 115 60Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <circle cx="60" cy="60" r="8" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.6"/>
-    </svg>
-
-    <svg class="deco-floral deco-floral--br" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="150" rx="120" ry="80" stroke="#c9b99a" stroke-width="0.6" opacity="0.3" transform="rotate(30 150 150)"/>
-      <path d="M150 70 Q180 110 150 150 Q120 110 150 70Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
-      <path d="M150 230 Q180 190 150 150 Q120 190 150 230Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
-      <path d="M70 150 Q110 120 150 150 Q110 180 70 150Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
-      <path d="M230 150 Q190 120 150 150 Q190 180 230 150Z" stroke="#c9b99a" stroke-width="0.8" fill="none" opacity="0.4"/>
-    </svg>
-  </div>
-
-  <!-- ===== HEADER / HERO ===== -->
+  <!-- ═══════════════════════════
+       HEADER
+  ═══════════════════════════ -->
   <header class="site-header">
-    <div class="header-rule"></div>
-    <p class="header-eyebrow">est. today — for always</p>
-    <h1 class="site-title">
-      <span class="title-script">Mémoire</span>
-    </h1>
-    <p class="site-subtitle">A vintage photobooth for moments worth keeping</p>
-    <div class="header-rule header-rule--bottom"></div>
+    <p class="store-name">meimonde store</p>
+    <div class="header-hr"></div>
+    <p class="header-est">est today. for always</p>
+    <h1 class="logo-script">Meimonde.</h1>
+    <div class="header-hr"></div>
+    <p class="tagline">photos for every moment</p>
   </header>
 
-  <!-- ===== MAIN APP ===== -->
-  <main class="app-main">
+  <!-- ═══════════════════════════
+       MAIN TWO-COLUMN GRID
+  ═══════════════════════════ -->
+  <main class="main-grid">
 
-    <!-- ===== CAMERA SECTION ===== -->
-    <section class="camera-section" id="camera-section">
-      <div class="section-label">
-        <span class="label-line"></span>
-        <span class="label-text">the booth</span>
-        <span class="label-line"></span>
+    <!-- Decorative strips (left) -->
+    <aside class="strips-col" aria-hidden="true">
+      <div class="deco-strip deco-strip--back">
+        <div class="deco-strip__header">
+          <span class="deco-strip__label">PHOTO BOOTH</span>
+          <span class="deco-strip__sub">meimonde store</span>
+        </div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__footer"><span>est. today · for always</span></div>
+      </div>
+      <div class="deco-strip deco-strip--front">
+        <div class="deco-strip__header">
+          <span class="deco-strip__label">PHOTO BOOTH</span>
+          <span class="deco-strip__sub">meimonde store</span>
+        </div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__slot"></div>
+        <div class="deco-strip__footer"><span class="deco-script">a moment, kept forever</span></div>
+      </div>
+    </aside>
+
+    <!-- Interactive booth (right) -->
+    <section class="booth-panel">
+
+      <!-- Icon bar -->
+      <div class="icon-bar">
+        <button class="icon-btn" id="btn-mode-cd" title="CD Studio">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="15.5" stroke="currentColor" stroke-width="1.2"/><circle cx="18" cy="18" r="11" stroke="currentColor" stroke-width="0.7" stroke-dasharray="2.5 2"/><circle cx="18" cy="18" r="6" stroke="currentColor" stroke-width="0.9"/><circle cx="18" cy="18" r="2.2" fill="currentColor"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-mode-phone" title="Phone Booth">
+          <svg viewBox="0 0 36 36" fill="none"><rect x="10" y="3" width="16" height="30" rx="2.5" stroke="currentColor" stroke-width="1.2"/><rect x="13" y="6" width="10" height="17" rx="1" stroke="currentColor" stroke-width="0.9"/><circle cx="18" cy="27.5" r="1.4" fill="currentColor"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-mode-cafe" title="Café Mode">
+          <svg viewBox="0 0 36 36" fill="none"><path d="M10 15h16l-2 11H12L10 15Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M26 17h2a2.5 2.5 0 0 1 0 5h-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="27" x2="28" y2="27" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M15 12 Q16.5 9 18 10 Q19.5 11 21 9" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" fill="none"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-menu" title="Menu">
+          <svg viewBox="0 0 36 36" fill="none"><line x1="9" y1="12" x2="27" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="9" y1="18" x2="27" y2="18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="9" y1="24" x2="27" y2="24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
       </div>
 
-      <!-- Vintage frame wrapper -->
-      <div class="camera-stage">
-        <div class="vintage-frame" id="vintage-frame">
-          <div class="frame-corner frame-corner--tl"></div>
-          <div class="frame-corner frame-corner--tr"></div>
-          <div class="frame-corner frame-corner--bl"></div>
-          <div class="frame-corner frame-corner--br"></div>
+      <!-- Mode badge -->
+      <div class="mode-badge-wrap">
+        <span class="mode-badge" id="mode-badge"></span>
+      </div>
+
+      <!-- Viewport + preview -->
+      <div class="viewport-row">
+        <div class="viewport-frame" id="vintage-frame">
+          <span class="bracket bracket--tl" aria-hidden="true"></span>
+          <span class="bracket bracket--br" aria-hidden="true"></span>
           <div class="frame-inner">
-            <!-- Live video -->
             <video id="video" autoplay playsinline muted></video>
-            <!-- Hidden canvas for capture -->
             <canvas id="capture-canvas" style="display:none;"></canvas>
-            <!-- Countdown overlay -->
             <div class="countdown-overlay" id="countdown-overlay" aria-live="polite">
               <span class="countdown-number" id="countdown-number"></span>
             </div>
-            <!-- Flash overlay -->
             <div class="flash-overlay" id="flash-overlay"></div>
-            <!-- Permission error state -->
             <div class="camera-error" id="camera-error" style="display:none;">
               <div class="error-icon">⌖</div>
               <p class="error-title">Camera access denied</p>
-              <p class="error-message">Please allow camera permissions in your browser settings and refresh the page.</p>
+              <p class="error-message">Allow camera permissions in your browser settings, then refresh.</p>
             </div>
           </div>
         </div>
 
-        <!-- Strip preview mini -->
-        <div class="strip-preview" id="strip-preview">
-          <p class="strip-preview__label">strip preview</p>
-          <div class="strip-preview__slots" id="strip-slots">
+        <div class="preview-col">
+          <p class="preview-label">preview</p>
+          <div class="preview-slots" id="strip-slots">
             <div class="strip-slot" data-index="0"><span>1</span></div>
             <div class="strip-slot" data-index="1"><span>2</span></div>
             <div class="strip-slot" data-index="2"><span>3</span></div>
@@ -95,134 +107,324 @@
         </div>
       </div>
 
-      <!-- Filters -->
-      <div class="filters-panel">
-        <p class="filters-label">mood</p>
-        <div class="filters-list" role="radiogroup" aria-label="Select photo filter">
-          <button class="filter-btn active" data-filter="none" role="radio" aria-checked="true" title="No filter">
-            <span class="filter-swatch filter-swatch--none"></span>
-            <span>natural</span>
-          </button>
-          <button class="filter-btn" data-filter="bw" role="radio" aria-checked="false" title="Black & white">
-            <span class="filter-swatch filter-swatch--bw"></span>
-            <span>noir</span>
-          </button>
-          <button class="filter-btn" data-filter="warm" role="radio" aria-checked="false" title="Warm vintage">
-            <span class="filter-swatch filter-swatch--warm"></span>
-            <span>golden hour</span>
-          </button>
-          <button class="filter-btn" data-filter="fade" role="radio" aria-checked="false" title="Faded film">
-            <span class="filter-swatch filter-swatch--fade"></span>
-            <span>faded film</span>
-          </button>
-          <button class="filter-btn" data-filter="dreamy" role="radio" aria-checked="false" title="Dreamy soft">
-            <span class="filter-swatch filter-swatch--dreamy"></span>
-            <span>dreamy</span>
-          </button>
-        </div>
-      </div>
-
       <!-- Controls -->
-      <div class="camera-controls">
-        <button class="btn btn--primary" id="btn-single" aria-label="Take single photo">
-          <span class="btn-icon">◎</span>
-          <span>capture one</span>
-        </button>
-        <button class="btn btn--strip" id="btn-strip" aria-label="Start photo strip sequence">
-          <span class="btn-icon">⋮</span>
-          <span>start strip</span>
-        </button>
-        <button class="btn btn--outline" id="btn-reset-strip" aria-label="Reset strip" style="display:none;">
-          <span>reset strip</span>
-        </button>
-      </div>
-
-      <!-- Status message -->
-      <p class="status-msg" id="status-msg" aria-live="polite"></p>
-    </section>
-
-    <!-- ===== CAPTION MODAL ===== -->
-    <div class="modal-backdrop" id="caption-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Add a caption">
-      <div class="modal-card">
-        <div class="modal-preview">
-          <img id="modal-preview-img" src="" alt="Just captured photo" />
-        </div>
-        <div class="modal-body">
-          <p class="modal-eyebrow">a moment captured</p>
-          <h3 class="modal-title">Add a caption</h3>
-          <input
-            type="text"
-            id="caption-input"
-            class="caption-input"
-            placeholder="write something beautiful…"
-            maxlength="80"
-            aria-label="Photo caption"
-          />
-          <div class="modal-actions">
-            <button class="btn btn--primary" id="btn-save-caption">save memory</button>
-            <button class="btn btn--ghost" id="btn-skip-caption">skip</button>
+      <div class="controls-panel">
+        <div class="control-row">
+          <span class="control-label">mood</span>
+          <div class="filter-swatches" role="radiogroup">
+            <button class="filter-swatch-btn active" data-filter="none" title="Natural"><span class="swatch swatch--none"></span><span class="swatch-name">natural</span></button>
+            <button class="filter-swatch-btn" data-filter="bw" title="Noir"><span class="swatch swatch--bw"></span><span class="swatch-name">noir</span></button>
+            <button class="filter-swatch-btn" data-filter="warm" title="Golden"><span class="swatch swatch--warm"></span><span class="swatch-name">golden</span></button>
+            <button class="filter-swatch-btn" data-filter="fade" title="Faded"><span class="swatch swatch--fade"></span><span class="swatch-name">faded</span></button>
+            <button class="filter-swatch-btn" data-filter="dreamy" title="Dreamy"><span class="swatch swatch--dreamy"></span><span class="swatch-name">dreamy</span></button>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- ===== STRIP DOWNLOAD MODAL ===== -->
-    <div class="modal-backdrop" id="strip-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Your photo strip">
-      <div class="modal-card modal-card--strip">
-        <div class="modal-strip-wrap">
-          <img id="strip-result-img" src="" alt="Your photo strip" class="strip-result-img" />
-        </div>
-        <div class="modal-body">
-          <p class="modal-eyebrow">your strip is ready</p>
-          <h3 class="modal-title">Four frames, one story.</h3>
-          <div class="modal-actions">
-            <button class="btn btn--primary" id="btn-download-strip">download strip</button>
-            <button class="btn btn--ghost" id="btn-close-strip">close</button>
+        <div class="control-row">
+          <span class="control-label">timer</span>
+          <div class="timer-options" role="radiogroup">
+            <button class="timer-btn" data-seconds="3">3s</button>
+            <button class="timer-btn active" data-seconds="5">5s</button>
+            <button class="timer-btn" data-seconds="10">10s</button>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- ===== GALLERY SECTION ===== -->
-    <section class="gallery-section" id="gallery-section">
-      <div class="section-label">
-        <span class="label-line"></span>
-        <span class="label-text">your memories</span>
-        <span class="label-line"></span>
-      </div>
-
-      <div class="gallery-header">
-        <p class="gallery-count" id="gallery-count">0 photos saved</p>
-        <button class="btn btn--ghost btn--small" id="btn-clear-gallery">clear all</button>
-      </div>
-
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- Populated by gallery.js -->
-        <div class="gallery-empty" id="gallery-empty">
-          <p class="gallery-empty__script">nothing yet —</p>
-          <p class="gallery-empty__text">your memories will appear here once you capture them</p>
+        <div class="control-row">
+          <span class="control-label">add strip</span>
+          <button class="strip-add-btn" id="btn-strip-add">+</button>
+        </div>
+        <p class="status-msg" id="status-msg" aria-live="polite"></p>
+        <div class="action-btns">
+          <button class="action-btn action-btn--primary" id="btn-single">capture</button>
+          <button class="action-btn action-btn--secondary" id="btn-strip">start strip</button>
+          <button class="action-btn action-btn--ghost" id="btn-reset-strip" style="display:none;">reset</button>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ═══════════════════════════
+       FOOTER
+  ═══════════════════════════ -->
   <footer class="site-footer">
-    <div class="footer-rule"></div>
-    <p class="footer-text">
-      <span class="footer-script">Mémoire</span>
-      &thinsp;—&thinsp; made with tenderness, for the moments that matter
+    <div class="footer-hr"></div>
+    <div class="memories-header">
+      <p class="memories-label">your memories</p>
+      <div class="memories-actions">
+        <span class="gallery-count" id="gallery-count">0 photos saved</span>
+        <button class="text-btn" id="btn-clear-gallery">clear all</button>
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-empty" id="gallery-empty">
+        <p class="gallery-empty__script">nothing yet —</p>
+        <p class="gallery-empty__text">your memories will appear here once you capture them</p>
+      </div>
+    </div>
+    <div class="footer-rects">
+      <div class="footer-rect" id="footer-recent-strips">
+        <span class="footer-rect__label">recent strips</span>
+      </div>
+      <div class="footer-rect footer-rect--library" id="footer-library">
+        <a href="library.html" class="library-link">
+          <span class="library-link__script">Meimonde.</span>
+          <span class="library-link__text">Community Library →</span>
+          <span class="library-link__sub">public gallery of shared moments</span>
+        </a>
+      </div>
+    </div>
+    <p class="footer-credit">
+      <span class="footer-script">Meimonde.</span>&thinsp;— all photos stored locally in your browser ·
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
     </p>
-    <p class="footer-sub">all photos are stored locally in your browser · nothing leaves your device</p>
   </footer>
 
-  <!-- ===== JS MODULES (order matters) ===== -->
+  <!-- ═══ CAPTION MODAL ═══ -->
+  <div class="modal-backdrop" id="caption-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-preview"><img id="modal-preview-img" src="" alt="Captured photo" /></div>
+      <div class="modal-body">
+        <p class="modal-eyebrow">a moment captured</p>
+        <h3 class="modal-title">Add a caption</h3>
+        <input type="text" id="caption-input" class="caption-input" placeholder="write something beautiful…" maxlength="80" />
+        <div class="modal-actions">
+          <button class="action-btn action-btn--primary" id="btn-save-caption">save memory</button>
+          <button class="action-btn action-btn--ghost" id="btn-skip-caption">skip</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STRIP RESULT MODAL ═══ -->
+  <div class="modal-backdrop" id="strip-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--strip">
+      <div class="modal-strip-wrap"><img id="strip-result-img" src="" alt="Photo strip" /></div>
+      <div class="modal-body">
+        <p class="modal-eyebrow">your strip is ready</p>
+        <h3 class="modal-title">Four frames, one story.</h3>
+        <div class="modal-actions">
+          <button class="action-btn action-btn--primary" id="btn-download-strip">download strip</button>
+          <button class="action-btn action-btn--ghost" id="btn-close-strip">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CD STUDIO MODAL ═══ -->
+  <div class="modal-backdrop" id="cd-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--cd modal-card--tall">
+      <button class="modal-close" id="btn-close-cd">✕</button>
+      <div class="modal-body">
+        <p class="modal-eyebrow">studio mode</p>
+        <h3 class="modal-title">Design Your Disc</h3>
+
+        <div class="cd-designer">
+          <!-- Disc preview -->
+          <div class="cd-preview-wrap">
+            <div class="cd-disc" id="cd-disc">
+              <div class="cd-ring cd-ring--1"></div>
+              <div class="cd-ring cd-ring--2"></div>
+              <div class="cd-label-area">
+                <p class="cd-label-title" id="cd-title-display">Meimonde</p>
+                <p class="cd-label-sub" id="cd-sub-display">a moment, kept</p>
+              </div>
+              <div class="cd-hole"></div>
+            </div>
+            <!-- Spotify embed (hidden until URL entered) -->
+            <iframe id="cd-spotify-embed" class="spotify-embed" style="display:none;" src="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+
+          <!-- Controls -->
+          <div class="cd-controls">
+            <label class="cd-field-label">Disc Title</label>
+            <input id="cd-title-input" class="cd-input" type="text" placeholder="e.g. meimonde 2025" maxlength="28" value="Meimonde" />
+
+            <label class="cd-field-label">Subtitle</label>
+            <input id="cd-sub-input" class="cd-input" type="text" placeholder="e.g. summer memories" maxlength="28" value="a moment, kept" />
+
+            <label class="cd-field-label">Title Font</label>
+            <div class="cd-font-btns">
+              <button class="cd-font-btn active" data-font="'Pinyon Script', cursive" style="font-family:'Pinyon Script',cursive;font-size:1rem;">Script</button>
+              <button class="cd-font-btn" data-font="'Cormorant Garamond', serif" style="font-family:'Cormorant Garamond',serif;">Serif</button>
+              <button class="cd-font-btn" data-font="'Cormorant', serif" style="font-family:'Cormorant',serif;font-weight:300;">Light</button>
+            </div>
+
+            <label class="cd-field-label" style="margin-top:12px;">Disc Colour</label>
+            <div class="cd-color-grid" id="cd-color-grid"></div>
+
+            <label class="cd-field-label" style="margin-top:14px;">Spotify Playlist URL</label>
+            <input id="cd-spotify-input" class="cd-input" type="url" placeholder="https://open.spotify.com/playlist/…" />
+            <div id="cd-spotify-preview" class="spotify-preview"></div>
+
+            <label class="cd-field-label" style="margin-top:12px;">Tracklist <span class="label-note">(optional — or use Spotify)</span></label>
+            <div id="cd-tracklist" class="cd-tracklist"></div>
+            <button class="text-btn" id="btn-add-track" style="margin-top:6px;">+ add track</button>
+
+            <button class="action-btn action-btn--primary cd-burn-btn" id="btn-burn-cd">◎&nbsp; burn disc &amp; generate album</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHONE BOOTH MODAL ═══ -->
+  <div class="modal-backdrop" id="phone-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--phone">
+      <button class="modal-close" id="btn-close-phone">✕</button>
+      <div class="modal-body">
+        <p class="modal-eyebrow">ring ring —</p>
+        <h3 class="modal-title">Phone Booth Note</h3>
+
+        <div class="phone-layout">
+          <!-- Mini strip preview -->
+          <div class="phone-strip-preview">
+            <p class="phone-strip-label">PHOTO BOOTH</p>
+            <div class="phone-slot"></div>
+            <div class="phone-slot"></div>
+            <div class="phone-slot"></div>
+            <p class="phone-footer-label">London · <em>Meimonde.</em></p>
+          </div>
+
+          <!-- Note form -->
+          <div class="phone-note-form">
+            <label class="cd-field-label">Your Note</label>
+            <textarea id="phone-note-input" class="note-textarea" placeholder="write a sweet note to go with your strip…" rows="3" maxlength="200"></textarea>
+
+            <label class="cd-field-label">Sign off as</label>
+            <input id="phone-sig-input" class="cd-input" type="text" placeholder="your name or a sweet nickname…" maxlength="40" />
+
+            <!-- Live note preview -->
+            <div class="note-preview" id="phone-note-preview">
+              <em>your note will appear here…</em>
+            </div>
+
+            <div class="phone-actions">
+              <button class="action-btn action-btn--primary" id="btn-apply-phone">activate note mode</button>
+              <button class="action-btn action-btn--ghost" id="btn-phone-share">📞 share strip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-dial-area">
+          <p class="phone-hint">Once you've taken your photos, generate and share your note strip via the link below.</p>
+          <div class="phone-number">077 — MEI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAFÉ MODAL ═══ -->
+  <div class="modal-backdrop" id="cafe-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-cafe">✕</button>
+      <div class="modal-body">
+        <p class="modal-eyebrow">today's special</p>
+        <h3 class="modal-title">Meimonda Café</h3>
+
+        <div class="cafe-options">
+          <button class="cafe-opt active" data-cafe="matcha">
+            <div class="cafe-icon">
+              <svg viewBox="0 0 60 70" fill="none"><rect x="8" y="18" width="44" height="44" rx="3" stroke="#5a7a5a" stroke-width="1.5"/><ellipse cx="30" cy="18" rx="22" ry="5" stroke="#5a7a5a" stroke-width="1.5" fill="#c8dbc0"/><rect x="14" y="24" width="32" height="32" rx="2" fill="#e8f0e2" stroke="#8aab9a" stroke-width="0.8"/></svg>
+            </div>
+            <span>matcha latte</span>
+          </button>
+          <button class="cafe-opt" data-cafe="coffee">
+            <div class="cafe-icon">
+              <svg viewBox="0 0 60 70" fill="none"><rect x="8" y="18" width="44" height="44" rx="3" stroke="#7a5a3a" stroke-width="1.5"/><ellipse cx="30" cy="18" rx="22" ry="5" stroke="#7a5a3a" stroke-width="1.5" fill="#c8a878"/><rect x="14" y="24" width="32" height="32" rx="2" fill="#f0e8d8" stroke="#b8945a" stroke-width="0.8"/></svg>
+            </div>
+            <span>café au lait</span>
+          </button>
+        </div>
+
+        <label class="cd-field-label">Your name (for the receipt)</label>
+        <input id="cafe-name-input" class="cd-input" type="text" placeholder="e.g. Mei" maxlength="30" style="margin-bottom:16px;" />
+
+        <button class="action-btn action-btn--primary" id="btn-apply-cafe">open café tab</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MENU MODAL ═══ -->
+  <div class="modal-backdrop" id="menu-modal" style="display:none;" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--menu">
+      <button class="modal-close" id="btn-close-menu">✕</button>
+      <div class="modal-body">
+        <p class="menu-logo">Meimonde.</p>
+        <nav class="menu-nav">
+          <button class="menu-item" data-panel="about">About Us</button>
+          <button class="menu-item" data-panel="submit">Send Us Your Pictures</button>
+          <button class="menu-item" data-panel="review">Write a Review</button>
+        </nav>
+
+        <!-- About -->
+        <div class="menu-panel" id="panel-about" style="display:none;">
+          <div class="about-content">
+            <p class="about-text">
+              Hey! I'm <strong>Mei Tong</strong>, the creator and #1 vibecoder for Meimonde.
+              Meimonde is a love letter to the moments we keep — born from a belief
+              that photographs deserve frames as beautiful as the feelings inside them.
+            </p>
+            <a href="https://www.linkedin.com/in/mei-tong-kim-505544311/" target="_blank" rel="noopener noreferrer" class="action-btn action-btn--primary about-linkedin">
+              Connect on LinkedIn →
+            </a>
+          </div>
+        </div>
+
+        <!-- Submit pictures -->
+        <div class="menu-panel" id="panel-submit" style="display:none;">
+          <p class="menu-panel__intro">Submit your favourite Meimonde captures for a chance to be featured on our community gallery. By submitting, you agree to our <a href="privacy.html" class="footer-link">Privacy Policy</a>.</p>
+          <div class="submit-form">
+            <label class="cd-field-label">Your Name *</label>
+            <input id="submit-name" class="cd-input" type="text" placeholder="Mei Tong" maxlength="60" />
+
+            <label class="cd-field-label">Instagram / Handle</label>
+            <input id="submit-handle" class="cd-input" type="text" placeholder="@handle" maxlength="60" />
+
+            <label class="cd-field-label">Email Address *</label>
+            <input id="submit-email" class="cd-input" type="email" placeholder="hello@example.com" maxlength="100" />
+
+            <label class="cd-field-label">Caption for your photo</label>
+            <input id="submit-caption" class="cd-input" type="text" placeholder="a short caption…" maxlength="120" />
+
+            <p class="submit-note">Click submit — an email will open. Attach your photo and send!</p>
+            <button class="action-btn action-btn--primary" id="btn-submit-form">submit for curation →</button>
+          </div>
+        </div>
+
+        <!-- Review -->
+        <div class="menu-panel" id="panel-review" style="display:none;">
+          <div class="review-form">
+            <label class="cd-field-label">Your Name *</label>
+            <input id="review-name" class="cd-input" type="text" placeholder="Mei Tong" maxlength="60" />
+
+            <label class="cd-field-label">Review Title</label>
+            <input id="review-subject" class="cd-input" type="text" placeholder="e.g. My Favourite Photobooth" maxlength="80" />
+
+            <label class="cd-field-label">Your Review *</label>
+            <textarea id="review-textarea" class="review-textarea" placeholder="tell us what you loved…" rows="4"></textarea>
+
+            <p class="submit-note">Your review will be sent titled: <em>Meimonde Review: [title] by [name]</em></p>
+            <button class="action-btn action-btn--primary" id="btn-send-review">send review →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CD BURN ANIMATION ═══ -->
+  <div class="burn-overlay" id="burn-overlay" style="display:none;" aria-hidden="true">
+    <div class="burn-disc-anim" id="burn-disc-anim">
+      <div class="burn-outer"></div>
+      <div class="burn-inner"></div>
+      <div class="burn-hole"></div>
+    </div>
+    <p class="burn-label">burning disc…</p>
+    <p class="burn-sub">generating your album art</p>
+  </div>
+
   <script src="js/filters.js"></script>
   <script src="js/camera.js"></script>
   <script src="js/capture.js"></script>
   <script src="js/strip.js"></script>
   <script src="js/gallery.js"></script>
-
+  <script src="js/modals.js"></script>
 </body>
 </html>
